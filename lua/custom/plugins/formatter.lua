@@ -133,11 +133,11 @@ return {
         },
       },
     }
-    vim.cmd [[
-		augroup FormatOnSave
-		autocmd!
-		autocmd BufWritePost * FormatWrite
-		augroup END
-		]]
+      vim.cmd [[
+    augroup FormatOnSave
+    autocmd!
+    autocmd BufWritePost * FormatWrite
+    augroup END
+    ]]
   end,
 }
