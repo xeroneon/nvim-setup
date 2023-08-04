@@ -1,41 +1,3 @@
---[[
-
-
-=====================================================================
-==================== READ THIS BEFORE CONTINUING ====================
-=====================================================================
-
-Kickstart.nvim is *not* a distribution.
-
-Kickstart.nvim is a template for your own configuration.
-  The goal is that you can read every line of code, top-to-bottom, understand
-  what your configuration is doing, and modify it to suit your needs.
-
-  Once you've done that, you should start exploring, configuring and tinkering to
-  explore Neovim!
-
-  If you don't know anything about Lua, I recommend taking some time to read through
-  a guide. One possible example:
-  - https://learnxinyminutes.com/docs/lua/
-
-  And then you can explore or search through `:help lua-guide`
-
-
-Kickstart Guide:
-
-I have left several `:help X` comments throughout the init.lua
-You should run that command and read that help section for more information.
-
-In addition, I have some `NOTE:` items throughout the file.
-These are for you, the reader to help understand what is happening. Feel free to delete
-them once you know what you're doing, but they should serve as a guide for when you
-are first encountering a few different constructs in your nvim config.
-
-I hope you enjoy your Neovim journey,
-- TJ
-
-P.S. You can delete this when you're done too. It's your config now :)
---]]
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -161,10 +123,10 @@ require('lazy').setup({
 
   {
     -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    'folke/tokyonight.nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd.colorscheme 'tokyonight'
     end,
   },
 
@@ -338,6 +300,11 @@ vim.keymap.set('n', '<leader>bC', '<cmd>bd!<CR>', {
   noremap = true,
   silent = true,
 })
+vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<CR>', {
+  desc = 'Toggle current line git blame',
+  noremap = true,
+  silent = true,
+})
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", {
@@ -385,67 +352,16 @@ vim.keymap.set('n', '<leader>fr', require('telescope.builtin').oldfiles, {
 vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, {
   desc = '[F]ind existing [B]uffers',
 })
--- vim.keymap.set(
---   'n',
---   '<leader>/',
---   function(
---   )
---     -- You can pass additional configuration to telescope to change theme, layout, etc.
---     require(
---       'telescope.builtin'
---     ).current_buffer_fuzzy_find(
---       require(
---         'telescope.themes'
---       ).get_dropdown {
---         winblend = 10,
---         previewer = false,
---       }
---     )
---   end,
---   {
---     desc = '[/] Fuzzily search in current buffer',
---   }
--- )
 
--- vim.keymap.set(
---   'n',
---   '<leader>gf',
---   require(
---     'telescope.builtin'
---   ).git_files,
---   {
---     desc = 'Search [G]it [F]iles',
---   }
--- )
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, {
   desc = '[F]ind [F]iles',
 })
--- vim.keymap.set(
---   'n',
---   '<leader>sh',
---   require(
---     'telescope.builtin'
---   ).help_tags,
---   {
---     desc = '[S]earch [H]elp',
---   }
--- )
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, {
   desc = '[S]earch current [W]ord',
 })
 vim.keymap.set('n', '<leader>fw', require('telescope.builtin').live_grep, {
   desc = '[F]ind by [W]ord',
 })
--- vim.keymap.set(
---   'n',
---   '<leader>sd',
---   require(
---     'telescope.builtin'
---   ).diagnostics,
---   {
---     desc = '[S]earch [D]iagnostics',
---   }
--- )
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
