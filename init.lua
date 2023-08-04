@@ -566,6 +566,7 @@ local on_attach = function(_, bufnr)
   -- See `:help K` for why this keymap
   nmap('<leader>lk', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<leader>lK', vim.lsp.buf.signature_help, 'Signature Documentation')
+  nmap('<leader>lf', '<cmd>Format<cr>', 'Format')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
