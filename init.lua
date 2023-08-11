@@ -218,6 +218,8 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.relativenumber = true
+-- Show current line number
+vim.wo.number = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
