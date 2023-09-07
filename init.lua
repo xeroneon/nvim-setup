@@ -292,6 +292,10 @@ vim.keymap.set('n', '<leader>o', '<cmd>Neotree float<CR>', {
   noremap = true,
   silent = true,
 })
+vim.keymap.set('n', '<leader>e', '<cmd>Neotree reveal<CR>', {
+  noremap = true,
+  silent = true,
+})
 vim.keymap.set('n', '<leader>bc', '<cmd>bd<CR>', {
   desc = 'Close current buffer',
   noremap = true,
@@ -453,9 +457,9 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {
   desc = 'Go to next diagnostic message',
 })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {
-  desc = 'Open floating diagnostic message',
-})
+-- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {
+--   desc = 'Open floating diagnostic message',
+-- })
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- [[ Configure LSP ]]
