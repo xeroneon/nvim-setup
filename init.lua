@@ -292,7 +292,7 @@ vim.keymap.set('n', '<leader>o', '<cmd>Neotree float<CR>', {
   noremap = true,
   silent = true,
 })
-vim.keymap.set('n', '<leader>e', '<cmd>Neotree reveal<CR>', {
+vim.keymap.set('n', '<leader>e', '<cmd>Neotree reveal float<CR>', {
   noremap = true,
   silent = true,
 })
