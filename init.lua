@@ -3,6 +3,10 @@
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
+vim.opt.undofile = true
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -323,6 +327,8 @@ vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<CR>',
   noremap = true,
   silent = true,
 })
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+-- vim.keymap.set('n', '<leader>gr', require('telescope.builtin').lsp_references(), { noremap = true, silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", {
