@@ -53,6 +53,27 @@ return {
       }
     end
 
+    local function gofumpt()
+      return {
+        exe = 'gofumpt',
+        stdin = true,
+      }
+    end
+
+    local function goimports()
+      return {
+        exe = 'goimports',
+        stdin = true,
+      }
+    end
+
+    local function golines()
+      return {
+        exe = 'golines',
+        stdin = true,
+      }
+    end
+
     formatter.setup {
       -- Enable or disable logging
       logging = true,
@@ -123,6 +144,11 @@ return {
         lua = {
           stylua,
         },
+        go = {
+          gofumpt,
+          golines,
+          goimports,
+        },
         -- Use the special "*" filetype for defining formatter configurations on
         -- any filetype
         ['*'] = {
@@ -133,7 +159,7 @@ return {
         },
       },
     }
-      vim.cmd [[
+    vim.cmd [[
     augroup FormatOnSave
     autocmd!
     autocmd BufWritePost * FormatWrite
